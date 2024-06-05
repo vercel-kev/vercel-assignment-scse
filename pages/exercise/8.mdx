@@ -1,0 +1,50 @@
+##### 8. A customer is creating a site and would like their project not to be indexed by search engines. Please write a reply to the customer. Feel free to add any information about your decision making process after the reply.
+
+Hello [Customer name],
+
+Thank you for reaching out to Vercel Support! 
+
+You can achieve this by making use of what is known as a robots.txt file.
+
+The robots.txt file is used to instruct web crawlers not to index your site. 
+
+You can easily create this file in the root of your Next.js project with the following content:
+
+```
+User-agent: *
+Disallow: /
+```
+
+This tells all web crawlers to not index any pages on your site.
+
+You can use the next.config.js to copy this file to the public directory during the build process if it’s not already there.
+
+```
+module.exports = withPlugins([withTM], {
+  async redirects() {
+    return [
+      {
+        source: '/robots.txt',
+        destination: '/public/robots.txt',
+        permanent: true,
+      },
+    ];
+  },
+});
+```
+
+Once you have added the robots.txt file and updated your configuration, deploy your site to Vercel.
+
+Additionally, you can add meta tags to your pages to prevent search engines from indexing them.
+
+You can do this by incorporating this piece of code:
+```
+<Head><meta name="robots" content="noindex, nofollow" /></Head>
+```
+If you have any further questions or need additional assistance, please don't hesitate to reach out. 
+
+We're here to help!
+
+Best regards, 
+Kevin
+Vercel

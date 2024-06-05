@@ -1,1 +1,9 @@
 ##### 4. When would you choose to use Edge Functions, Serverless Functions, or Edge Middleware with Vercel?
+
+The main difference between edge functions and serverless functions lies in their respective runtime environments. Edge functions utilize the edge runtime, which is lightweight but limited, whereas Vercel serverless functions support the full Node.js runtime, enabling a wide range of Node-based packages and functionalities.
+
+Vercel serverless functions, based on Node.js, are capable of replacing entire backend APIs, empowering developers to execute powerful tasks. For instance, in the context of a marketplace application requiring integration with Stripe Connect for vendor payments, serverless functions can be employed to validate and automate payments based on specific conditions. Users have the flexibility to set the region where the function will be deployed and allocate memory as needed.
+
+In contrast, edge functions are suitable for scenarios where minimal processing is required. The edge runtime is lightweight and executes closer to the user. However, users cannot specify the deployment region or allocate memory. Additionally, edge functions are not suitable for heavy concurrent processing tasks. An example use case for edge functions is HTTP header manipulation, such as injecting custom headers into requests or responses for security purposes.
+
+On the other hand, edge middleware runs on Vercel's middleware network, functioning as a middleware closer to the user. This setup is designed to alleviate the load on the original server by handling tasks at the edge. For instance, edge middleware can perform JWT authentication without the need to send data to the server or invoke serverless functions. Another example would be dynamically displaying prices based on the user's location. This capability allows for efficient and responsive handling of common functionalities without burdening the origin server.
