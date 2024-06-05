@@ -1,0 +1,21 @@
+#### 3. Describe how you solved a challenge or technical issue that you faced in a previous role (preferably in a previous support role). How did you determine that your solution was successful? 
+
+In my current / previous role as an enterprise customer success engineer at Flutterflow there was this unique use case that was requested by our banking customers.
+
+Enterprise customers from the financial sector in India (Banking / BFSI) had a specific but common ask to be able to encrypt all of their API payloads.
+
+And at the same time to decrypt the responses from those API calls. 
+
+Due to the limited availability of features in the platform at that point in time, I had suggested the customers to use custom created actions which would comprise of an encrypted / decryption algorithm.
+
+This would ensure that whenever an API call action was about to be triggered, this encryption logic will be manually attached as a predecessor to this action.
+
+While this did solve the use case for the customer, this was not feasible, because these customers had hundreds of API calls in their applications and modifying a configuration across the board would be a challenge.
+
+I identified this deficiency in the product and raised a feature request to have the concept of interceptors in API calls in the projects.
+
+This would ideally invoke an intercepting function on request or on response of API calls so that you had to change the configurations (if needed) only once throughout the global scope of the application.
+
+Now there are close to 0 enterprise customers that do not use this feature. 
+
+This was a critical product requirements which I helped the team to identify, accelerate and deliver to our customers.
